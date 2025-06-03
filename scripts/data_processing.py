@@ -65,4 +65,11 @@ def preprocess_text(text):
     text = re.sub(r'[^a-zA-Z\s.,!?]', '', text)
     text = re.sub(r'https?://\S+|www\.\S+', '', text)
 
-    return text
+    tokens = word_tokenize(text)
+    lemmatizer = WordNetLemmatizer()
+    stop_words = set(stopwords.words('english'))
+
+    tokens = [lemmatizer.lemmatize(word) for word in tokens if word not in stop_words]
+    tokens = [word for word in tokens if len(word) > 1]
+
+    return ' '.join(tokens)
