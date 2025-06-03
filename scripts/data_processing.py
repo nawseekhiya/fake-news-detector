@@ -73,3 +73,17 @@ def preprocess_text(text):
     tokens = [word for word in tokens if len(word) > 1]
 
     return ' '.join(tokens)
+
+
+# Step 3: Preprocessing workflow for full DataFrame
+def preprocess_data(df):
+    print("\n🧹 Preprocessing data...")
+
+    raw_path = DATA_RAW / "raw_combined.csv"
+    df.to_csv(raw_path, index=False)
+    print(f"✅ Raw data saved to: {raw_path}")
+
+    df = df.drop_duplicates(subset=['title', 'text'])
+    df['text'] = df['text'].fillna('')
+    df['title'] = df['title'].fillna('')
+    df['full_text'] = df['title'] + ' ' + df['text']
