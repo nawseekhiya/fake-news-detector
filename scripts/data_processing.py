@@ -87,3 +87,15 @@ def preprocess_data(df):
     df['text'] = df['text'].fillna('')
     df['title'] = df['title'].fillna('')
     df['full_text'] = df['title'] + ' ' + df['text']
+
+     # Preprocess text in batches
+    batch_size = 2000
+    batches = [df.iloc[i:i+batch_size] for i in range(0, len(df), batch_size)]
+
+    processed_texts = []
+    for i, batch in enumerate(batches):
+        print(f"  Processing batch {i+1}/{len(batches)}")
+        processed_batch = batch['full_text'].apply(preprocess_text)
+        processed_texts.extend(processed_batch)
+
+    df['processed_text'] = processed_texts
