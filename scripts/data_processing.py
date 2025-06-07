@@ -55,6 +55,7 @@ def load_dataset():
 
     return df
 
+full_df = load_dataset()
 
 # Step 2: Preprocess individual text entries
 def preprocess_text(text):
