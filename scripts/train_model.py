@@ -1,10 +1,10 @@
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression
 from sklearn.pipeline import make_pipeline
-from pathlib import Path
+import joblib
 from time import time
 from data_processing import preprocess_data
-import pandas as pd
+import os
 
 # Access the variables from data_processing.py
 train_df, test_df = preprocess_data()
@@ -39,3 +39,19 @@ def train_model(X_train, y_train):
 
 # Train the model
 model, train_time = train_model(X_train, y_train)
+
+
+# Save artifacts
+def save_artifacts(model, test_df, metrics):
+    print("\n💾 Saving artifacts...")
+
+    # Ensure the /models directory exists
+    os.makedirs('models', exist_ok=True)
+
+    # Save model
+    joblib.dump(model, 'models/fake_news_model.pkl')
+
+    # Save test samples
+    test_df[['processed_text', 'label']].to_csv('models/test_samples.csv', index=False)
+
+    print("✅ Model and artifacts saved in /models folder.")
