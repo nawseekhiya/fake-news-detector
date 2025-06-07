@@ -99,3 +99,14 @@ def preprocess_data(df):
         processed_texts.extend(processed_batch)
 
     df['processed_text'] = processed_texts
+
+    # Create train-test split
+    train_df = df.sample(frac=0.8, random_state=42)
+    test_df = df.drop(train_df.index)
+
+    # Save processed data
+    train_path = DATA_PROCESSED / "train_processed.csv"
+    test_path = DATA_PROCESSED / "test_processed.csv"
+
+    train_df.to_csv(train_path, index=False)
+    test_df.to_csv(test_path, index=False)
