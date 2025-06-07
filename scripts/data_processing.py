@@ -110,3 +110,17 @@ def preprocess_data(df):
 
     train_df.to_csv(train_path, index=False)
     test_df.to_csv(test_path, index=False)
+
+    print(f"✅ Preprocessing completed in {time()-start:.2f} seconds")
+    print(f"   - Train set ({len(train_df)} samples): {train_path}")
+    print(f"   - Test set ({len(test_df)} samples): {test_path}")
+
+    # Save additional artifacts for future reference
+    sample_path = DATA_PROCESSED / "sample_processed_texts.csv"
+    train_df[['processed_text', 'label']].head(100).to_csv(sample_path, index=False)
+    print(f"   - Sample processed texts: {sample_path}")
+
+    return train_df, test_df
+
+# Preprocess the data
+train_df, test_df = preprocess_data(full_df)
