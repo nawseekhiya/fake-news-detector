@@ -55,6 +55,7 @@ def load_dataset():
 
     return df
 
+full_df = load_dataset()
 
 # Step 2: Preprocess individual text entries
 def preprocess_text(text):
@@ -99,3 +100,28 @@ def preprocess_data(df):
         processed_texts.extend(processed_batch)
 
     df['processed_text'] = processed_texts
+
+    # Create train-test split
+    train_df = df.sample(frac=0.8, random_state=42)
+    test_df = df.drop(train_df.index)
+
+    # Save processed data
+    train_path = DATA_PROCESSED / "train_processed.csv"
+    test_path = DATA_PROCESSED / "test_processed.csv"
+
+    train_df.to_csv(train_path, index=False)
+    test_df.to_csv(test_path, index=False)
+
+    print(f"✅ Preprocessing completed in {time()-start:.2f} seconds")
+    print(f"   - Train set ({len(train_df)} samples): {train_path}")
+    print(f"   - Test set ({len(test_df)} samples): {test_path}")
+
+    # Save additional artifacts for future reference
+    sample_path = DATA_PROCESSED / "sample_processed_texts.csv"
+    train_df[['processed_text', 'label']].head(100).to_csv(sample_path, index=False)
+    print(f"   - Sample processed texts: {sample_path}")
+
+    return train_df, test_df
+
+# Preprocess the data
+train_df, test_df = preprocess_data(full_df)
