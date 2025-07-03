@@ -76,10 +76,6 @@ A Machine Learning–powered web application that detects whether a news article
 
 ---
 
-## Here’s your **split requirements section in Markdown**, grouped into **Core Requirements** and **EDA-Only Requirements** for clarity and maintainability:
-
----
-
 ## 📦 Requirements
 
 ### 🔧 Core Requirements (App + Inference)
