@@ -43,7 +43,8 @@ def predict(title, text):
         "probabilities": {
             "Real": round(proba[0], 4),
             "Fake": round(proba[1], 4)
-        }
+        },
+        "processed_text": processed
     }
 
 # An optional test run

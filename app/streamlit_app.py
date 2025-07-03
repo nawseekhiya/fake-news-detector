@@ -120,6 +120,10 @@ if st.button("🔍 Analyze News", use_container_width=True):
 
             with st.expander("View Detailed Analysis"):
                 st.write("**Processed Text Preview:**")
-                st.caption(result.get("processed_text", "Not available")[:500] + "...")
+                if "processed_text" in result:
+                    st.caption(result["processed_text"][:500] + "...")
+                else:
+                    st.caption("Not available")
+
                 st.write("**Probability Breakdown:**")
                 st.json(result.get("probabilities", {}))
