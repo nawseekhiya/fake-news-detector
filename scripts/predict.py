@@ -1,7 +1,13 @@
+import os
 import joblib
-from data_processing import preprocess_text
+from scripts.data_processing import preprocess_text
 
-model = joblib.load("models/fake_news_model.pkl")
+MODEL_PATH = os.path.join(os.path.dirname(__file__), "..", "models", "fake_news_model.pkl")
+try:
+    model = joblib.load(MODEL_PATH)
+except FileNotFoundError:
+    raise FileNotFoundError(f"❌ Model not found at: {MODEL_PATH}\nPlease ensure it is trained and saved.")
+
 
 def predict(title, text):
     if not isinstance(title, str) or not isinstance(text, str):
