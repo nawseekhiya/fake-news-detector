@@ -76,6 +76,7 @@ def preprocess_text(text):
 # Step 3: Preprocessing workflow for full DataFrame
 def preprocess_data(df):
     print("\n🧹 Preprocessing data...")
+    start = time()
 
     raw_path = DATA_RAW / "raw_combined.csv"
     df.to_csv(raw_path, index=False)
