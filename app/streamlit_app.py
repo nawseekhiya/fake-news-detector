@@ -67,7 +67,6 @@ with st.sidebar:
     st.markdown("Dataset from [Kaggle](https://www.kaggle.com/clmentbisaillon/fake-and-real-news-dataset)")
     st.markdown("Made with ❤️ by **Abhishek**")
 
-    # GitHub icon with link
     st.markdown("""
     <a href="https://github.com/nawseekhiya/fake-news-detector" target="_blank">
         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" 
@@ -80,17 +79,19 @@ with st.sidebar:
 st.title("📰 Fake News Detector")
 st.markdown("Enter the title and content of a news article to verify its authenticity.")
 
-# Input
-title_input = st.text_input("News Title", placeholder="e.g. NASA confirms moon base construction")
-text_input = st.text_area(
-    "News Text",
-    height=250,
-    placeholder="Paste full news article here...",
-    help="Minimum 50 characters total for accurate analysis"
-)
+# Form to enable ctrl+enter
+with st.form("news_form"):
+    title_input = st.text_input("News Title", placeholder="e.g. NASA confirms moon base construction")
+    text_input = st.text_area(
+        "News Text",
+        height=250,
+        placeholder="Paste full news article here...",
+        help="Minimum 50 characters total for accurate analysis"
+    )
+    submitted = st.form_submit_button("🔍 Analyze News")
 
 # Prediction
-if st.button("🔍 Analyze News", use_container_width=True):
+if submitted:
     if len(title_input.strip() + text_input.strip()) < 50:
         st.warning("⚠️ Please enter at least 50 characters total")
     else:

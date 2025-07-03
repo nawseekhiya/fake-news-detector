@@ -14,16 +14,6 @@ nltk.download('punkt_tab')
 nltk.download('wordnet')
 nltk.download('stopwords')
 
-# Define project structure paths
-PROJECT_ROOT = Path.cwd()
-DATA_RAW = PROJECT_ROOT / "data" / "raw"
-DATA_PROCESSED = PROJECT_ROOT / "data" / "processed"
-
-# Create directories if they don't exist
-DATA_RAW.mkdir(parents=True, exist_ok=True)
-DATA_PROCESSED.mkdir(parents=True, exist_ok=True)
-
-
 # Step 1: Load datasets directly from Kaggle
 def load_dataset():
     print("⏳ Loading datasets from Kaggle...")
@@ -122,5 +112,14 @@ def preprocess_data(df):
     return train_df, test_df
 
 if __name__ == "__main__":
+    # Define project structure paths
+    PROJECT_ROOT = Path.cwd()
+    DATA_RAW = PROJECT_ROOT / "data" / "raw"
+    DATA_PROCESSED = PROJECT_ROOT / "data" / "processed"
+
+    # Create directories if they don't exist
+    DATA_RAW.mkdir(parents=True, exist_ok=True)
+    DATA_PROCESSED.mkdir(parents=True, exist_ok=True)
+
     full_df = load_dataset()
     train_df, test_df = preprocess_data(full_df)
