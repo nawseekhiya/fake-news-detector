@@ -55,8 +55,6 @@ def load_dataset():
 
     return df
 
-full_df = load_dataset()
-
 # Step 2: Preprocess individual text entries
 def preprocess_text(text):
     if not isinstance(text, str):
@@ -74,7 +72,6 @@ def preprocess_text(text):
     tokens = [word for word in tokens if len(word) > 1]
 
     return ' '.join(tokens)
-
 
 # Step 3: Preprocessing workflow for full DataFrame
 def preprocess_data(df):
@@ -123,5 +120,6 @@ def preprocess_data(df):
 
     return train_df, test_df
 
-# Preprocess the data
-train_df, test_df = preprocess_data(full_df)
+if __name__ == "__main__":
+    full_df = load_dataset()
+    train_df, test_df = preprocess_data(full_df)
