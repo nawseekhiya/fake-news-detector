@@ -1,5 +1,5 @@
 ![Python](https://img.shields.io/badge/Python-3.10+-blue?logo=python&logoColor=white)
-![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
+![License: Custom](https://img.shields.io/badge/license-custom-blue.svg)
 ![Streamlit](https://img.shields.io/badge/Built%20with-Streamlit-orange?logo=streamlit)
 ![Scikit-learn](https://img.shields.io/badge/Model-Scikit--Learn-green?logo=scikit-learn)
 ![Status](https://img.shields.io/badge/Status-Active-success)
@@ -9,11 +9,13 @@
 ![Forks](https://img.shields.io/github/forks/nawseekhiya/fake-news-detector?style=social)
 [![Streamlit](https://img.shields.io/badge/Try%20it%20on-Streamlit%20Cloud-red?logo=streamlit)](https://fakenewsdetector-nawseekhiya.streamlit.app/)
 
+This is a personal project — open for learning and contributions, but **all rights are reserved**. See [LICENSE](LICENSE) for details.
+
 # 📰 Fake News Detector
 
 A Machine Learning–powered web application that detects whether a news article is **real or fake**. Built using Python, Scikit-learn, and Streamlit, the app takes the **title and content** of a news piece, processes it using NLP, and returns the probability of it being fake or real.
 
-![Fake News Detector UI](assets/fake_news_detector_screen.png)
+![Fake News Detector UI](assets/fake_news_detector_screen.jpeg)
 
 ---
 
@@ -192,7 +194,14 @@ We follow **conventional commit rules** and **issue-linked PRs** for clean histo
 
 ## 📄 License
 
-This project is licensed under the MIT License.
+This project is **open-sourced with restrictions**.
+
+- All rights are reserved by the core team.
+- You are free to use or adapt the code, but **must credit the original authors**.
+- Contributions are welcome and will be **acknowledged**, but do not grant ownership or redistribution rights.
+- Redistribution or commercial use without explicit permission is **not allowed**.
+- You may not use the code in any way that could be considered **derivative** or **commercial** without explicit permission from **Abhishek Mohanty**.  
+  Read more at [LICENSE.md](./LICENSE.md).
 
 ---
 
