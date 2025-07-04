@@ -9,7 +9,7 @@
 ![Forks](https://img.shields.io/github/forks/nawseekhiya/fake-news-detector?style=social)
 [![Streamlit](https://img.shields.io/badge/Try%20it%20on-Streamlit%20Cloud-red?logo=streamlit)](https://fakenewsdetector-nawseekhiya.streamlit.app/)
 
-This is a personal project — open for learning and contributions, but **all rights are reserved**. See [LICENSE](LICENSE) for details.
+This is a personal project — open for learning and contributions, but **all rights are reserved**. See [LICENSE](LICENSE.md) for details.
 
 # 📰 Fake News Detector
 
